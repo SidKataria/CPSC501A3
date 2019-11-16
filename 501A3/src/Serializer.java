@@ -16,7 +16,7 @@ public class Serializer {
 	private static ArrayList<Element> valElement;
 	private static ArrayList<Element> refArr;
 	
-	public static Document serialize(Object obj) {
+	public static org.jdom2.Document serialize(Object obj) {
 		Element rootNode = new Element("serialized");
 		Document rootDoc = new Document(rootNode);
 		
