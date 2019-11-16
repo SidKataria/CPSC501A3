@@ -1,15 +1,15 @@
 /**
- * Class to create a primitive array
+ * Class to create a primitive char array
  * @author sid
  *
  */
 public class PrimitiveArrayObj {
-	private int[] primitiveArr = null;
+	private char[] primitiveArr = null;
 	
 	public PrimitiveArrayObj() {
 	}
 	
-	public PrimitiveArrayObj(int[] val1) {
+	public PrimitiveArrayObj(char[] val1) {
 		primitiveArr = val1;
 	}
 }

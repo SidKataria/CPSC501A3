@@ -23,6 +23,7 @@ public class ObjCreater {
 	PrimitiveArrayObj priArrObj = null;
 	ReferenceArrayObj refArrObj = null;
 	CollectionObj collectionObj = null;
+	String charstring;
 	int intvalue;
 	float floatvalue;
 	boolean boolvalue;
@@ -70,18 +71,18 @@ public class ObjCreater {
 		return refObj;
 	}
 	
-	//Method to create an array object containing primitives
+	//Method to create an array object containing char primitives
 	public PrimitiveArrayObj createPriArrObj() {
-		System.out.println("Wish to not create any integer arrays? Please enter 'n' if you dont, anything else to continue...");
+		System.out.println("Wish to not create any character arrays? Please enter 'n' if you dont, anything else to continue...");
 		try {
 			inputHandler(0);
 			if (checker == true) {
-				System.out.println("Creating an array containing primitve intergers...");
+				System.out.println("Creating an array containing primitve characters...");
 				System.out.println("Please enter the desired array's length");
 				inputHandler(1);
 				arrlength = input.nextInt();
-				int[] newArr = new int[arrlength];
-				System.out.println("Please enter an interger value for each array entry");
+				char[] newArr = new char[arrlength];
+				System.out.println("Please enter a character for each array entry");
 				createPrimitiveArray(newArr);
 				priArrObj = new PrimitiveArrayObj(newArr);
 			}
@@ -135,13 +136,14 @@ public class ObjCreater {
 		return collectionObj;
 	}
 	
-	//Method to create custom int array
-	private void createPrimitiveArray(int[] array) {
+	//Method to create custom char array
+	private void createPrimitiveArray(char[] array) {
 		for (int i = 0; i < array.length; i++) {
-			System.out.println("Enter integer value for index: " + i);
-			inputHandler(1);
-			array[i] = input.nextInt();
+			System.out.println("Enter a character for index: " + i);
+			inputHandler(4);
+			charstring = charstring + input.toString();
 		}
+		array = charstring.toCharArray();
 	}
 	
 	//Method to create custom object array
@@ -163,25 +165,32 @@ public class ObjCreater {
 		}
 		else if (type == 1) {
 			while (!input.hasNextInt()) {
-				input.next();
 				System.out.println("Please input a valid integer value");
+				input.next();
 			}
 			checker = true;
 		}
 		else if (type == 2) {
 			while (!input.hasNextFloat()) {
-				input.next();
 				System.out.println("Please input a valid floating integer value");
+				input.next();
 			}
 			checker = true;
 		}
 		else if (type == 3) {
 			String boolval = input.next();
 			while ((!boolval.contentEquals("true")) || !boolval.contentEquals("false")) {
-				input.next();
 				System.out.println("Please enter either true or false");
+				boolval = input.next();
 			}
 			checker = true;
+		}
+		else if (type == 4) {
+			String character = input.next();
+			while (character.length() != 1) {
+				System.out.println("Please only enter a single character");
+				character = input.next();
+			}
 		}
 	}
 }
